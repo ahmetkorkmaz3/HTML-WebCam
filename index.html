@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #container {
+        margin: 0 auto;
+        width: 500px;
+        height: 375px;
+        border: 3px solid #333;
+        border-radius: 3px;
+      }
+
+      #videoElement {
+        width: 500px;
+        height: 375px;
+        background-color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Web Camera in HTML -->
+
+    <div id="container">
+      <video autoplay="true" id="videoElement"></video>
+    </div>
+
+    <script>
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+    </script>
+
+
+  </body>
+</html>
